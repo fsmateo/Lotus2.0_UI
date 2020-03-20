@@ -41,6 +41,7 @@
             this.sendCoordinateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.coordinateTextBox = new System.Windows.Forms.TextBox();
+            this.manualControlButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.manualConGB.SuspendLayout();
             this.destGB.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // manualConGB
             // 
+            this.manualConGB.Controls.Add(this.manualControlButton);
             this.manualConGB.Controls.Add(this.rightB);
             this.manualConGB.Controls.Add(this.reverseB);
             this.manualConGB.Controls.Add(this.forwardB);
@@ -91,41 +93,41 @@
             // 
             // rightB
             // 
-            this.rightB.Location = new System.Drawing.Point(118, 58);
+            this.rightB.Location = new System.Drawing.Point(108, 68);
             this.rightB.Name = "rightB";
-            this.rightB.Size = new System.Drawing.Size(55, 25);
+            this.rightB.Size = new System.Drawing.Size(30, 30);
             this.rightB.TabIndex = 3;
-            this.rightB.Text = "Right";
+            this.rightB.Text = "→";
             this.rightB.UseVisualStyleBackColor = true;
             this.rightB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rightB_KeyDown);
             // 
             // reverseB
             // 
-            this.reverseB.Location = new System.Drawing.Point(63, 96);
+            this.reverseB.Location = new System.Drawing.Point(72, 89);
             this.reverseB.Name = "reverseB";
-            this.reverseB.Size = new System.Drawing.Size(55, 25);
+            this.reverseB.Size = new System.Drawing.Size(30, 30);
             this.reverseB.TabIndex = 1;
-            this.reverseB.Text = "Reverse";
+            this.reverseB.Text = "↓";
             this.reverseB.UseVisualStyleBackColor = true;
             this.reverseB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reverseB_KeyDown);
             // 
             // forwardB
             // 
-            this.forwardB.Location = new System.Drawing.Point(63, 19);
+            this.forwardB.Location = new System.Drawing.Point(72, 49);
             this.forwardB.Name = "forwardB";
-            this.forwardB.Size = new System.Drawing.Size(55, 25);
+            this.forwardB.Size = new System.Drawing.Size(30, 30);
             this.forwardB.TabIndex = 0;
-            this.forwardB.Text = "Forward";
+            this.forwardB.Text = "↑";
             this.forwardB.UseVisualStyleBackColor = true;
             this.forwardB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.forwardB_KeyDown);
             // 
             // leftB
             // 
-            this.leftB.Location = new System.Drawing.Point(6, 58);
+            this.leftB.Location = new System.Drawing.Point(36, 68);
             this.leftB.Name = "leftB";
-            this.leftB.Size = new System.Drawing.Size(55, 25);
+            this.leftB.Size = new System.Drawing.Size(30, 30);
             this.leftB.TabIndex = 2;
-            this.leftB.Text = "Left";
+            this.leftB.Text = "←";
             this.leftB.UseVisualStyleBackColor = true;
             this.leftB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.leftB_KeyDown);
             // 
@@ -167,6 +169,15 @@
             this.coordinateTextBox.Size = new System.Drawing.Size(163, 20);
             this.coordinateTextBox.TabIndex = 0;
             // 
+            // manualControlButton
+            // 
+            this.manualControlButton.Location = new System.Drawing.Point(10, 20);
+            this.manualControlButton.Name = "manualControlButton";
+            this.manualControlButton.Size = new System.Drawing.Size(163, 23);
+            this.manualControlButton.TabIndex = 4;
+            this.manualControlButton.Text = "Enable Manual Control";
+            this.manualControlButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +214,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox coordinateTextBox;
         private System.Windows.Forms.Button sendCoordinateButton;
+        private System.Windows.Forms.Button manualControlButton;
     }
 }
 
