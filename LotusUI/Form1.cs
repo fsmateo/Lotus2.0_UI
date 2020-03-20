@@ -105,7 +105,7 @@ namespace LotusUI
             }
             catch (Exception)
             {
-                MessageBox.Show("Disconnection Error Encountered");
+                
             }
         }
 
@@ -156,6 +156,12 @@ namespace LotusUI
         private void sendB_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            disconnectFromMCU();
+            Application.Exit();
         }
     }
 }

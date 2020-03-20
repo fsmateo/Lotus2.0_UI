@@ -66,6 +66,7 @@
             this.serialportCB.Name = "serialportCB";
             this.serialportCB.Size = new System.Drawing.Size(80, 21);
             this.serialportCB.TabIndex = 1;
+            this.serialportCB.TabStop = false;
             // 
             // connectB
             // 
@@ -73,6 +74,7 @@
             this.connectB.Name = "connectB";
             this.connectB.Size = new System.Drawing.Size(80, 23);
             this.connectB.TabIndex = 0;
+            this.connectB.TabStop = false;
             this.connectB.Text = "Connect";
             this.connectB.UseVisualStyleBackColor = true;
             this.connectB.Click += new System.EventHandler(this.connectB_Click);
@@ -97,6 +99,7 @@
             this.rightB.Name = "rightB";
             this.rightB.Size = new System.Drawing.Size(30, 30);
             this.rightB.TabIndex = 3;
+            this.rightB.TabStop = false;
             this.rightB.Text = "→";
             this.rightB.UseVisualStyleBackColor = true;
             this.rightB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rightB_KeyDown);
@@ -107,6 +110,7 @@
             this.reverseB.Name = "reverseB";
             this.reverseB.Size = new System.Drawing.Size(30, 30);
             this.reverseB.TabIndex = 1;
+            this.reverseB.TabStop = false;
             this.reverseB.Text = "↓";
             this.reverseB.UseVisualStyleBackColor = true;
             this.reverseB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reverseB_KeyDown);
@@ -117,6 +121,7 @@
             this.forwardB.Name = "forwardB";
             this.forwardB.Size = new System.Drawing.Size(30, 30);
             this.forwardB.TabIndex = 0;
+            this.forwardB.TabStop = false;
             this.forwardB.Text = "↑";
             this.forwardB.UseVisualStyleBackColor = true;
             this.forwardB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.forwardB_KeyDown);
@@ -127,6 +132,7 @@
             this.leftB.Name = "leftB";
             this.leftB.Size = new System.Drawing.Size(30, 30);
             this.leftB.TabIndex = 2;
+            this.leftB.TabStop = false;
             this.leftB.Text = "←";
             this.leftB.UseVisualStyleBackColor = true;
             this.leftB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.leftB_KeyDown);
@@ -149,6 +155,7 @@
             this.sendCoordinateButton.Name = "sendCoordinateButton";
             this.sendCoordinateButton.Size = new System.Drawing.Size(75, 23);
             this.sendCoordinateButton.TabIndex = 4;
+            this.sendCoordinateButton.TabStop = false;
             this.sendCoordinateButton.Text = "Send";
             this.sendCoordinateButton.UseVisualStyleBackColor = true;
             this.sendCoordinateButton.Click += new System.EventHandler(this.sendB_Click);
@@ -168,6 +175,7 @@
             this.coordinateTextBox.Name = "coordinateTextBox";
             this.coordinateTextBox.Size = new System.Drawing.Size(163, 20);
             this.coordinateTextBox.TabIndex = 0;
+            this.coordinateTextBox.TabStop = false;
             // 
             // manualControlButton
             // 
@@ -175,6 +183,7 @@
             this.manualControlButton.Name = "manualControlButton";
             this.manualControlButton.Size = new System.Drawing.Size(163, 23);
             this.manualControlButton.TabIndex = 4;
+            this.manualControlButton.TabStop = false;
             this.manualControlButton.Text = "Enable Manual Control";
             this.manualControlButton.UseVisualStyleBackColor = true;
             // 
@@ -190,6 +199,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Lotus 2.0";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBox1.ResumeLayout(false);
