@@ -8,3 +8,13 @@ C:\Users\mateo\Desktop\LotusUI\LotusUI\obj\Debug\LotusUI.csproj.CoreCompileInput
 C:\Users\mateo\Desktop\LotusUI\LotusUI\obj\Debug\LotusUI.exe
 C:\Users\mateo\Desktop\LotusUI\LotusUI\obj\Debug\LotusUI.pdb
 C:\Users\mateo\Desktop\LotusUI\LotusUI\obj\Debug\LotusUI.csprojAssemblyReference.cache
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.exe.config
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.exe
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.pdb
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.csprojAssemblyReference.cache
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.Form1.resources
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.Properties.Resources.resources
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.csproj.GenerateResource.cache
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.csproj.CoreCompileInputs.cache
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.exe
+C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.pdb
