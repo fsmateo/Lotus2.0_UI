@@ -13,7 +13,6 @@ namespace LotusUI
 {
     public partial class Form1 : Form
     {
-        //Joncy was here
         bool isConnected = false;
         String[] ports;
         SerialPort port;
@@ -27,11 +26,6 @@ namespace LotusUI
             foreach (string port in ports)
             {
                 serialportCB.Items.Add(port);
-                Console.WriteLine(port);
-                if (ports[0] != null)
-                {
-                    serialportCB.SelectedItem = ports[0];
-                }
             }
         }
 
@@ -64,47 +58,55 @@ namespace LotusUI
         {
             if (!isConnected)
             {
-                connectToArduino();
+                connectToMCU();
             }
             else
             {
-                disconnectFromArduino();
+                disconnectFromMCU();
             }
         }
 
-        private void connectToArduino()
+        void getAvailableComPorts()
+        {
+            ports = SerialPort.GetPortNames();
+        }
+
+        private void connectToMCU()
         {
             try
             {
                 isConnected = true;
+                connectB.Text = "Disconnect";
+                enableControls();
                 string selectedPort = serialportCB.GetItemText(serialportCB.SelectedItem);
-                port = new SerialPort(selectedPort, 9600, Parity.None, 8, StopBits.One);
+                port = new SerialPort(selectedPort, 115200, Parity.None, 8, StopBits.One);
                 port.Open();
                 port.Write("#STAR\n");
             }
             catch (Exception)
             {
-                MessageBox.Show("Connection Error Encountered");
+                isConnected = false;
+                connectB.Text = "Connect";
+                disableControls();
+                MessageBox.Show("Select a valid COM port");
             }
-            connectB.Text = "Disconnect";
-            enableControls();
         }
 
-        private void disconnectFromArduino()
+        private void disconnectFromMCU()
         {
             try
             {
-                isConnected = false;
                 port.Write("#STOP\n");
                 port.Close();
+                isConnected = false;
+                connectB.Text = "Connect";
+                serialportCB.SelectedIndex = -1;
+                disableControls();
             }
             catch (Exception)
             {
                 MessageBox.Show("Disconnection Error Encountered");
             }
-            connectB.Text = "Connect";
-            disableControls();
-            resetDefaults();
         }
 
         private void enableControls()
@@ -117,11 +119,6 @@ namespace LotusUI
         {
             destGB.Enabled = false;
             manualConGB.Enabled = false;
-        }
-
-        private void resetDefaults()
-        {
-            
         }
 
         private void forwardB_KeyDown(object sender, KeyEventArgs e)
