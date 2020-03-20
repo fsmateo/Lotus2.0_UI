@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Testing Pull Request V3...
+// Testing Pull Request V4...
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace LotusUI
 {
     public partial class Form1 : Form
     {
+        //Joncy was here
         bool isConnected = false;
         String[] ports;
         SerialPort port;
@@ -153,6 +156,11 @@ namespace LotusUI
             {
                 port.Write("#RIGHT\n");
             }
+        }
+
+        private void sendB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
