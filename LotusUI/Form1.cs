@@ -17,6 +17,13 @@ namespace LotusUI
         String[] ports;
         SerialPort port;
 
+        DBConnect DB1;
+        const char DELIMITER = '$';
+        String inputString;
+        String[] dataEntries = new String[7];
+        String date, time, longitude, latitude, temperature, humidity, _object, times_found, score;
+        DateTime now;
+
         public Form1()
         {
             InitializeComponent();
@@ -119,6 +126,60 @@ namespace LotusUI
         {
             destGB.Enabled = false;
             manualConGB.Enabled = false;
+        }
+
+        private void databaseLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void databaseB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Try Reconnecting";
+            }
+        }
+
+        private void simulateB_Click(object sender, EventArgs e)
+        {
+            //Example input string
+            inputString = "-117.086418$33.119205$74$44$bird$4$99.71";
+            storeData(inputString);
+        }
+
+        private void storeData(string inputString)
+        {
+            try
+            {
+                now = DateTime.Now;
+                date = now.Date.ToString("yyyy-MM-dd");
+                time = now.TimeOfDay.ToString();
+
+                dataEntries = inputString.Split(DELIMITER);
+                longitude = dataEntries[0];
+                latitude = dataEntries[1];
+                temperature = dataEntries[2];
+                humidity = dataEntries[3];
+                _object = dataEntries[4];
+                times_found = dataEntries[5];
+                score = dataEntries[6];
+
+                DB1.Insert(date, time, longitude, latitude, temperature, humidity, _object, times_found, score);
+
+                databaseLabel.Text = "Data Stored Successfully";
+            }
+            catch(Exception)
+            {
+                databaseLabel.Text = "ERROR: Data Not Stored";
+            }
         }
 
         private void forwardB_KeyDown(object sender, KeyEventArgs e)
