@@ -31,6 +31,7 @@ namespace LotusUI
         {
             InitializeComponent();
             disableControls();
+            connectToDatabase();
             ports = SerialPort.GetPortNames();
             outFile = new FileStream("data.txt", FileMode.Append, FileAccess.Write);
             writer = new StreamWriter(outFile);
@@ -38,18 +39,6 @@ namespace LotusUI
             foreach (string port in ports)
             {
                 serialportCB.Items.Add(port);
-            }
-
-            try
-            {
-                DB1 = new DBConnect();
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "Connected to Database";
-            }
-            catch (Exception)
-            {
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "ERROR: Try Reconnecting";
             }
         }
 
@@ -143,6 +132,21 @@ namespace LotusUI
         {
             destGB.Enabled = false;
             manualConGB.Enabled = false;
+        }
+
+        private void connectToDatabase()
+        {
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Try Reconnecting";
+            }
         }
 
         private void databaseLabel_Click(object sender, EventArgs e)
