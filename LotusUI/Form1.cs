@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.IO;
 
 namespace LotusUI
 {
@@ -22,17 +23,33 @@ namespace LotusUI
         String inputString;
         String[] dataEntries = new String[7];
         String date, time, longitude, latitude, temperature, humidity, _object, times_found, score;
-        DateTime now;
+        DateTime Time;
+        FileStream outFile;
+        StreamWriter writer;
 
         public Form1()
         {
             InitializeComponent();
             disableControls();
             ports = SerialPort.GetPortNames();
+            outFile = new FileStream("data.txt", FileMode.Append, FileAccess.Write);
+            writer = new StreamWriter(outFile);
 
             foreach (string port in ports)
             {
                 serialportCB.Items.Add(port);
+            }
+
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Try Reconnecting";
             }
         }
 
@@ -133,21 +150,6 @@ namespace LotusUI
 
         }
 
-        private void databaseB_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DB1 = new DBConnect();
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "Connected to Database";
-            }
-            catch (Exception)
-            {
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "ERROR: Try Reconnecting";
-            }
-        }
-
         private void simulateB_Click(object sender, EventArgs e)
         {
             //Example input string
@@ -159,9 +161,9 @@ namespace LotusUI
         {
             try
             {
-                now = DateTime.Now;
-                date = now.Date.ToString("yyyy-MM-dd");
-                time = now.TimeOfDay.ToString();
+                Time = DateTime.Now;
+                date = Time.Date.ToString("yyyy-MM-dd");
+                time = Time.Hour + ":" + Time.Minute + ":" + Time.Second;
 
                 dataEntries = inputString.Split(DELIMITER);
                 longitude = dataEntries[0];
@@ -178,7 +180,8 @@ namespace LotusUI
             }
             catch(Exception)
             {
-                databaseLabel.Text = "ERROR: Data Not Stored";
+                databaseLabel.Text = "ERROR: Couldn't Store Data\nStored in Local File Instead";
+                writer.WriteLine(date + "$" + time + "$" + inputString);
             }
         }
 
@@ -221,6 +224,8 @@ namespace LotusUI
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            writer.Close();
+            outFile.Close();
             disconnectFromMCU();
             Application.Exit();
         }

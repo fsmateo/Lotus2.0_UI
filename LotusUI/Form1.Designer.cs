@@ -45,7 +45,6 @@
             this.databaseLabel = new System.Windows.Forms.Label();
             this.databaseGB = new System.Windows.Forms.GroupBox();
             this.simulateB = new System.Windows.Forms.Button();
-            this.databaseB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.manualConGB.SuspendLayout();
             this.destGB.SuspendLayout();
@@ -211,7 +210,7 @@
             // databaseLabel
             // 
             this.databaseLabel.AutoSize = true;
-            this.databaseLabel.Location = new System.Drawing.Point(54, 131);
+            this.databaseLabel.Location = new System.Drawing.Point(54, 88);
             this.databaseLabel.Name = "databaseLabel";
             this.databaseLabel.Size = new System.Drawing.Size(56, 20);
             this.databaseLabel.TabIndex = 2;
@@ -221,35 +220,24 @@
             // 
             // databaseGB
             // 
-            this.databaseGB.Controls.Add(this.databaseB);
             this.databaseGB.Controls.Add(this.simulateB);
             this.databaseGB.Controls.Add(this.databaseLabel);
-            this.databaseGB.Location = new System.Drawing.Point(422, 251);
+            this.databaseGB.Location = new System.Drawing.Point(409, 282);
             this.databaseGB.Name = "databaseGB";
-            this.databaseGB.Size = new System.Drawing.Size(286, 166);
+            this.databaseGB.Size = new System.Drawing.Size(286, 138);
             this.databaseGB.TabIndex = 3;
             this.databaseGB.TabStop = false;
             this.databaseGB.Text = "Database";
             // 
             // simulateB
             // 
-            this.simulateB.Location = new System.Drawing.Point(45, 75);
+            this.simulateB.Location = new System.Drawing.Point(45, 31);
             this.simulateB.Name = "simulateB";
             this.simulateB.Size = new System.Drawing.Size(204, 41);
             this.simulateB.TabIndex = 3;
             this.simulateB.Text = "Simulate Receive String";
             this.simulateB.UseVisualStyleBackColor = true;
             this.simulateB.Click += new System.EventHandler(this.simulateB_Click);
-            // 
-            // databaseB
-            // 
-            this.databaseB.Location = new System.Drawing.Point(74, 30);
-            this.databaseB.Name = "databaseB";
-            this.databaseB.Size = new System.Drawing.Size(135, 37);
-            this.databaseB.TabIndex = 4;
-            this.databaseB.Text = "Connect";
-            this.databaseB.UseVisualStyleBackColor = true;
-            this.databaseB.Click += new System.EventHandler(this.databaseB_Click);
             // 
             // Form1
             // 
@@ -296,7 +284,6 @@
         private System.Windows.Forms.Label databaseLabel;
         private System.Windows.Forms.GroupBox databaseGB;
         private System.Windows.Forms.Button simulateB;
-        private System.Windows.Forms.Button databaseB;
     }
 }
 
