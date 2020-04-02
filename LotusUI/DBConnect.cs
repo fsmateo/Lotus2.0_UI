@@ -74,7 +74,7 @@ namespace LotusUI
 
         public void Insert(string date, string time, string longitude, string latitude, string temperature, string humidity, string _object, string times_found, string score)
         {
-            string query = "JINSERT INTO `data`(`id`, `date`, `time`, `longitude`, `latitude`, `temperature`, `humidity`, `object`, `times_found`, `score`) VALUES (NULL, '" + 
+            string query = "INSERT INTO `data`(`id`, `date`, `time`, `longitude`, `latitude`, `temperature`, `humidity`, `object`, `times_found`, `score`) VALUES (NULL, '" + 
                 date + "', '" + time + "', '" + longitude + "', '" + latitude + "', '" + temperature + "', '" + humidity + "', '" + _object + "', '" + times_found + "', '" + score + "')";
 
             if (this.OpenConnection() == true)
