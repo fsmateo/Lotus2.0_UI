@@ -27,6 +27,18 @@ namespace LotusUI
             {
                 serialportCB.Items.Add(port);
             }
+
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Try Reconnecting";
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -119,6 +131,33 @@ namespace LotusUI
         {
             destGB.Enabled = false;
             manualConGB.Enabled = false;
+        }
+
+        private void connectToDatabase()
+        {
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Try Reconnecting";
+            }
+        }
+
+        private void databaseLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simulateB_Click(object sender, EventArgs e)
+        {
+            //Example input string
+            inputString = "-117.086418$33.119205$74$44$bird$4$99.71";
+            storeData(inputString);
         }
 
         private void forwardB_KeyDown(object sender, KeyEventArgs e)
