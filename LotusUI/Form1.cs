@@ -93,10 +93,7 @@ namespace LotusUI
                 this.KeyPreview = false;
                 disableControls();
             }
-            catch (Exception)
-            {
-                
-            }
+            catch { }
         }
 
         private void enableControls()
