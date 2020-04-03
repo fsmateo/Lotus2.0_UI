@@ -15,6 +15,7 @@ namespace LotusUI
     public partial class Form1 : Form
     {
         bool isConnected = false;
+        bool manualControlDirection = false;
         String[] ports;
         SerialPort port;
 
@@ -39,31 +40,6 @@ namespace LotusUI
             foreach (string port in ports)
             {
                 serialportCB.Items.Add(port);
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.KeyPreview = true;
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-            {
-                forwardB.PerformClick();
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                reverseB.PerformClick();
-            }
-            if (e.KeyCode == Keys.Left)
-            {
-                leftB.PerformClick();
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                rightB.PerformClick();
             }
         }
 
@@ -114,12 +90,10 @@ namespace LotusUI
                 isConnected = false;
                 connectB.Text = "Connect";
                 serialportCB.SelectedIndex = -1;
+                this.KeyPreview = false;
                 disableControls();
             }
-            catch (Exception)
-            {
-                
-            }
+            catch { }
         }
 
         private void enableControls()
@@ -154,6 +128,68 @@ namespace LotusUI
 
         }
 
+        private void manualControlButton_Click(object sender, EventArgs e)
+        {
+            if(manualControlButton.Text.Contains("Enable"))
+            {
+                manualControlButton.Text = "Disable Manual Control";
+                this.KeyPreview = true;
+                manualControlDirection = true;
+            }
+            else
+            {
+                manualControlButton.Text = "Enable Manual Control";
+                this.KeyPreview = false;
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (manualControlDirection)
+                {
+                    switch (e.KeyCode)
+                    {
+                        case Keys.W:
+                            forwardButton.BackColor = SystemColors.ActiveCaption;
+                            port.Write("#FORW\n");
+                            break;
+                        case Keys.S:
+                            reverseButton.BackColor = SystemColors.ActiveCaption;
+                            port.Write("#REVE\n");
+                            break;
+                        case Keys.A:
+                            leftButton.BackColor = SystemColors.ActiveCaption;
+                            port.Write("#LEFT\n");
+                            break;
+                        case Keys.D:
+                            rightButton.BackColor = SystemColors.ActiveCaption;
+                            port.Write("#RIGH\n");
+                            break;
+                        default:
+                            break;
+                    }
+                    manualControlDirection = false;
+                }
+            }
+            catch { }
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                forwardButton.BackColor = SystemColors.Control;
+                reverseButton.BackColor = SystemColors.Control;
+                leftButton.BackColor = SystemColors.Control;
+                rightButton.BackColor = SystemColors.Control;
+                port.Write("#BRAK\n");
+                manualControlDirection = true;
+            }
+            catch { }
+        }
+
         private void simulateB_Click(object sender, EventArgs e)
         {
             //Example input string
@@ -186,38 +222,6 @@ namespace LotusUI
             {
                 databaseLabel.Text = "ERROR: Couldn't Store Data\nStored in Local File Instead";
                 writer.WriteLine(date + "$" + time + "$" + inputString);
-            }
-        }
-
-        private void forwardB_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (isConnected)
-            {
-                port.Write("#FORWARD\n");
-            }
-        }
-
-        private void reverseB_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (isConnected)
-            {
-                port.Write("#REVERSE\n");
-            }
-        }
-
-        private void leftB_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (isConnected)
-            {
-                port.Write("#LEFT\n");
-            }
-        }
-
-        private void rightB_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (isConnected)
-            {
-                port.Write("#RIGHT\n");
             }
         }
 
