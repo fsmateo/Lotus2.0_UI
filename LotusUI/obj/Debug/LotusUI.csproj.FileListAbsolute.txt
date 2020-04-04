@@ -27,9 +27,6 @@ C:\Users\joncy\Source\Repos\Lotus2.0_UI\LotusUI\obj\Debug\LotusUI.csproj.CopyCom
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.exe.config
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.exe
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\LotusUI.pdb
-C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\MySql.Data.dll
-C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\Google.Protobuf.dll
-C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\bin\Debug\MySql.Data.xml
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.Form1.resources
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.Properties.Resources.resources
 C:\Users\mateo\Desktop\Lotus2.0_UI_master\LotusUI\obj\Debug\LotusUI.csproj.GenerateResource.cache

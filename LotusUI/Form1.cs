@@ -90,10 +90,11 @@ namespace LotusUI
                 isConnected = false;
                 connectB.Text = "Connect";
                 serialportCB.SelectedIndex = -1;
+                manualControlButton.Text = "Enable Manual Control";
                 this.KeyPreview = false;
                 disableControls();
             }
-            catch { }
+            catch (Exception) { }
         }
 
         private void enableControls()
@@ -106,26 +107,6 @@ namespace LotusUI
         {
             destGB.Enabled = false;
             manualConGB.Enabled = false;
-        }
-
-        private void connectToDatabase()
-        {
-            try
-            {
-                DB1 = new DBConnect();
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "Connected to Database";
-            }
-            catch (Exception)
-            {
-                databaseLabel.Visible = true;
-                databaseLabel.Text = "ERROR: Try Reconnecting";
-            }
-        }
-
-        private void databaseLabel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void manualControlButton_Click(object sender, EventArgs e)
@@ -173,7 +154,7 @@ namespace LotusUI
                     manualControlDirection = false;
                 }
             }
-            catch { }
+            catch (Exception) { }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -187,13 +168,32 @@ namespace LotusUI
                 port.Write("#BRAK\n");
                 manualControlDirection = true;
             }
-            catch { }
+            catch (Exception) { }
+        }
+
+        private void connectToDatabase()
+        {
+            try
+            {
+                DB1 = new DBConnect();
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "Connected to Database";
+            }
+            catch (Exception)
+            {
+                databaseLabel.Visible = true;
+                databaseLabel.Text = "ERROR: Can't Connect to DB";
+            }
+        }
+
+        private void connectDBB_Click(object sender, EventArgs e)
+        {
+            connectToDatabase();
         }
 
         private void simulateB_Click(object sender, EventArgs e)
         {
-            //Example input string
-            inputString = "-117.086418$33.119205$74$44$bird$4$99.71";
+            inputString = "-117.086418$33.119205$74$44$bird$4$99.71";   //CHANGE TO: Input from LoRA
             storeData(inputString);
         }
 
@@ -215,13 +215,12 @@ namespace LotusUI
                 score = dataEntries[6];
 
                 DB1.Insert(date, time, longitude, latitude, temperature, humidity, _object, times_found, score);
-
                 databaseLabel.Text = "Data Stored Successfully";
             }
             catch(Exception)
             {
-                databaseLabel.Text = "ERROR: Couldn't Store Data\nStored in Local File Instead";
                 writer.WriteLine(date + "$" + time + "$" + inputString);
+                databaseLabel.Text = "ERROR: Couldn't Store Data\nStored in Local File Instead";
             }
         }
 
