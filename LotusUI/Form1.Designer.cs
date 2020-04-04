@@ -34,16 +34,17 @@
             this.connectB = new System.Windows.Forms.Button();
             this.manualConGB = new System.Windows.Forms.GroupBox();
             this.manualControlButton = new System.Windows.Forms.Button();
-            this.rightB = new System.Windows.Forms.Button();
-            this.reverseB = new System.Windows.Forms.Button();
-            this.forwardB = new System.Windows.Forms.Button();
-            this.leftB = new System.Windows.Forms.Button();
+            this.rightButton = new System.Windows.Forms.Button();
+            this.reverseButton = new System.Windows.Forms.Button();
+            this.forwardButton = new System.Windows.Forms.Button();
+            this.leftButton = new System.Windows.Forms.Button();
             this.destGB = new System.Windows.Forms.GroupBox();
             this.sendCoordinateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.coordinateTextBox = new System.Windows.Forms.TextBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.databaseGB = new System.Windows.Forms.GroupBox();
+            this.connectDBB = new System.Windows.Forms.Button();
             this.simulateB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.manualConGB.SuspendLayout();
@@ -90,15 +91,15 @@
             // manualConGB
             // 
             this.manualConGB.Controls.Add(this.manualControlButton);
-            this.manualConGB.Controls.Add(this.rightB);
-            this.manualConGB.Controls.Add(this.reverseB);
-            this.manualConGB.Controls.Add(this.forwardB);
-            this.manualConGB.Controls.Add(this.leftB);
+            this.manualConGB.Controls.Add(this.rightButton);
+            this.manualConGB.Controls.Add(this.reverseButton);
+            this.manualConGB.Controls.Add(this.forwardButton);
+            this.manualConGB.Controls.Add(this.leftButton);
             this.manualConGB.Location = new System.Drawing.Point(18, 251);
             this.manualConGB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.manualConGB.Name = "manualConGB";
             this.manualConGB.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.manualConGB.Size = new System.Drawing.Size(268, 192);
+            this.manualConGB.Size = new System.Drawing.Size(268, 189);
             this.manualConGB.TabIndex = 1;
             this.manualConGB.TabStop = false;
             this.manualConGB.Text = "Manual Control";
@@ -113,54 +114,55 @@
             this.manualControlButton.TabStop = false;
             this.manualControlButton.Text = "Enable Manual Control";
             this.manualControlButton.UseVisualStyleBackColor = true;
+            this.manualControlButton.Click += new System.EventHandler(this.manualControlButton_Click);
             // 
-            // rightB
+            // rightButton
             // 
-            this.rightB.Location = new System.Drawing.Point(162, 105);
-            this.rightB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rightB.Name = "rightB";
-            this.rightB.Size = new System.Drawing.Size(45, 46);
-            this.rightB.TabIndex = 3;
-            this.rightB.TabStop = false;
-            this.rightB.Text = "→";
-            this.rightB.UseVisualStyleBackColor = true;
-            this.rightB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rightB_KeyDown);
+            this.rightButton.BackColor = System.Drawing.SystemColors.Control;
+            this.rightButton.Location = new System.Drawing.Point(162, 105);
+            this.rightButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rightButton.Name = "rightButton";
+            this.rightButton.Size = new System.Drawing.Size(45, 46);
+            this.rightButton.TabIndex = 3;
+            this.rightButton.TabStop = false;
+            this.rightButton.Text = "D";
+            this.rightButton.UseVisualStyleBackColor = false;
             // 
-            // reverseB
+            // reverseButton
             // 
-            this.reverseB.Location = new System.Drawing.Point(108, 137);
-            this.reverseB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.reverseB.Name = "reverseB";
-            this.reverseB.Size = new System.Drawing.Size(45, 46);
-            this.reverseB.TabIndex = 1;
-            this.reverseB.TabStop = false;
-            this.reverseB.Text = "↓";
-            this.reverseB.UseVisualStyleBackColor = true;
-            this.reverseB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reverseB_KeyDown);
+            this.reverseButton.BackColor = System.Drawing.SystemColors.Control;
+            this.reverseButton.Location = new System.Drawing.Point(108, 137);
+            this.reverseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.reverseButton.Name = "reverseButton";
+            this.reverseButton.Size = new System.Drawing.Size(45, 46);
+            this.reverseButton.TabIndex = 1;
+            this.reverseButton.TabStop = false;
+            this.reverseButton.Text = "S";
+            this.reverseButton.UseVisualStyleBackColor = false;
             // 
-            // forwardB
+            // forwardButton
             // 
-            this.forwardB.Location = new System.Drawing.Point(108, 75);
-            this.forwardB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.forwardB.Name = "forwardB";
-            this.forwardB.Size = new System.Drawing.Size(45, 46);
-            this.forwardB.TabIndex = 0;
-            this.forwardB.TabStop = false;
-            this.forwardB.Text = "↑";
-            this.forwardB.UseVisualStyleBackColor = true;
-            this.forwardB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.forwardB_KeyDown);
+            this.forwardButton.BackColor = System.Drawing.SystemColors.Control;
+            this.forwardButton.Location = new System.Drawing.Point(108, 75);
+            this.forwardButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.forwardButton.Name = "forwardButton";
+            this.forwardButton.Size = new System.Drawing.Size(45, 46);
+            this.forwardButton.TabIndex = 0;
+            this.forwardButton.TabStop = false;
+            this.forwardButton.Text = "W";
+            this.forwardButton.UseVisualStyleBackColor = false;
             // 
-            // leftB
+            // leftButton
             // 
-            this.leftB.Location = new System.Drawing.Point(54, 105);
-            this.leftB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.leftB.Name = "leftB";
-            this.leftB.Size = new System.Drawing.Size(45, 46);
-            this.leftB.TabIndex = 2;
-            this.leftB.TabStop = false;
-            this.leftB.Text = "←";
-            this.leftB.UseVisualStyleBackColor = true;
-            this.leftB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.leftB_KeyDown);
+            this.leftButton.BackColor = System.Drawing.SystemColors.Control;
+            this.leftButton.Location = new System.Drawing.Point(54, 105);
+            this.leftButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.leftButton.Name = "leftButton";
+            this.leftButton.Size = new System.Drawing.Size(45, 46);
+            this.leftButton.TabIndex = 2;
+            this.leftButton.TabStop = false;
+            this.leftButton.Text = "A";
+            this.leftButton.UseVisualStyleBackColor = false;
             // 
             // destGB
             // 
@@ -210,30 +212,41 @@
             // databaseLabel
             // 
             this.databaseLabel.AutoSize = true;
-            this.databaseLabel.Location = new System.Drawing.Point(54, 88);
+            this.databaseLabel.Location = new System.Drawing.Point(37, 137);
             this.databaseLabel.Name = "databaseLabel";
             this.databaseLabel.Size = new System.Drawing.Size(56, 20);
             this.databaseLabel.TabIndex = 2;
             this.databaseLabel.Text = "Status";
+            this.databaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.databaseLabel.Visible = false;
-            this.databaseLabel.Click += new System.EventHandler(this.databaseLabel_Click);
             // 
             // databaseGB
             // 
+            this.databaseGB.Controls.Add(this.connectDBB);
             this.databaseGB.Controls.Add(this.simulateB);
             this.databaseGB.Controls.Add(this.databaseLabel);
-            this.databaseGB.Location = new System.Drawing.Point(409, 282);
+            this.databaseGB.Location = new System.Drawing.Point(419, 251);
             this.databaseGB.Name = "databaseGB";
-            this.databaseGB.Size = new System.Drawing.Size(286, 138);
+            this.databaseGB.Size = new System.Drawing.Size(286, 179);
             this.databaseGB.TabIndex = 3;
             this.databaseGB.TabStop = false;
             this.databaseGB.Text = "Database";
             // 
+            // connectDBB
+            // 
+            this.connectDBB.Location = new System.Drawing.Point(74, 31);
+            this.connectDBB.Name = "connectDBB";
+            this.connectDBB.Size = new System.Drawing.Size(140, 39);
+            this.connectDBB.TabIndex = 4;
+            this.connectDBB.Text = "Connect";
+            this.connectDBB.UseVisualStyleBackColor = true;
+            this.connectDBB.Click += new System.EventHandler(this.connectDBB_Click);
+            // 
             // simulateB
             // 
-            this.simulateB.Location = new System.Drawing.Point(45, 31);
+            this.simulateB.Location = new System.Drawing.Point(41, 85);
             this.simulateB.Name = "simulateB";
-            this.simulateB.Size = new System.Drawing.Size(204, 41);
+            this.simulateB.Size = new System.Drawing.Size(204, 42);
             this.simulateB.TabIndex = 3;
             this.simulateB.Text = "Simulate Receive String";
             this.simulateB.UseVisualStyleBackColor = true;
@@ -244,7 +257,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(831, 449);
+            this.ClientSize = new System.Drawing.Size(831, 452);
             this.Controls.Add(this.databaseGB);
             this.Controls.Add(this.destGB);
             this.Controls.Add(this.manualConGB);
@@ -254,8 +267,8 @@
             this.Name = "Form1";
             this.Text = "Lotus 2.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.manualConGB.ResumeLayout(false);
             this.destGB.ResumeLayout(false);
@@ -272,10 +285,10 @@
         private System.Windows.Forms.ComboBox serialportCB;
         private System.Windows.Forms.Button connectB;
         private System.Windows.Forms.GroupBox manualConGB;
-        private System.Windows.Forms.Button rightB;
-        private System.Windows.Forms.Button reverseB;
-        private System.Windows.Forms.Button forwardB;
-        private System.Windows.Forms.Button leftB;
+        private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.Button reverseButton;
+        private System.Windows.Forms.Button forwardButton;
+        private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.GroupBox destGB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox coordinateTextBox;
@@ -284,6 +297,7 @@
         private System.Windows.Forms.Label databaseLabel;
         private System.Windows.Forms.GroupBox databaseGB;
         private System.Windows.Forms.Button simulateB;
+        private System.Windows.Forms.Button connectDBB;
     }
 }
 
