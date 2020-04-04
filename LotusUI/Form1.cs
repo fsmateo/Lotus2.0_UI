@@ -90,13 +90,11 @@ namespace LotusUI
                 isConnected = false;
                 connectB.Text = "Connect";
                 serialportCB.SelectedIndex = -1;
+                manualControlButton.Text = "Enable Manual Control";
                 this.KeyPreview = false;
                 disableControls();
             }
-            catch (Exception)
-            { 
-
-            }
+            catch (Exception) { }
         }
 
         private void enableControls()
@@ -156,7 +154,7 @@ namespace LotusUI
                     manualControlDirection = false;
                 }
             }
-            catch { }
+            catch (Exception) { }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -170,7 +168,7 @@ namespace LotusUI
                 port.Write("#BRAK\n");
                 manualControlDirection = true;
             }
-            catch { }
+            catch (Exception) { }
         }
 
         private void connectToDatabase()
