@@ -44,6 +44,7 @@
             this.coordinateTextBox = new System.Windows.Forms.TextBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.databaseGB = new System.Windows.Forms.GroupBox();
+            this.connectDBB = new System.Windows.Forms.Button();
             this.simulateB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.manualConGB.SuspendLayout();
@@ -55,9 +56,11 @@
             // 
             this.groupBox1.Controls.Add(this.serialportCB);
             this.groupBox1.Controls.Add(this.connectB);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(18, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 53);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(268, 82);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serial Connection";
@@ -66,17 +69,19 @@
             // 
             this.serialportCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serialportCB.FormattingEnabled = true;
-            this.serialportCB.Location = new System.Drawing.Point(93, 20);
+            this.serialportCB.Location = new System.Drawing.Point(140, 31);
+            this.serialportCB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.serialportCB.Name = "serialportCB";
-            this.serialportCB.Size = new System.Drawing.Size(80, 21);
+            this.serialportCB.Size = new System.Drawing.Size(118, 28);
             this.serialportCB.TabIndex = 1;
             this.serialportCB.TabStop = false;
             // 
             // connectB
             // 
-            this.connectB.Location = new System.Drawing.Point(6, 19);
+            this.connectB.Location = new System.Drawing.Point(9, 29);
+            this.connectB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.connectB.Name = "connectB";
-            this.connectB.Size = new System.Drawing.Size(80, 23);
+            this.connectB.Size = new System.Drawing.Size(120, 35);
             this.connectB.TabIndex = 0;
             this.connectB.TabStop = false;
             this.connectB.Text = "Connect";
@@ -90,18 +95,21 @@
             this.manualConGB.Controls.Add(this.reverseButton);
             this.manualConGB.Controls.Add(this.forwardButton);
             this.manualConGB.Controls.Add(this.leftButton);
-            this.manualConGB.Location = new System.Drawing.Point(12, 163);
+            this.manualConGB.Location = new System.Drawing.Point(18, 251);
+            this.manualConGB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.manualConGB.Name = "manualConGB";
-            this.manualConGB.Size = new System.Drawing.Size(179, 123);
+            this.manualConGB.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.manualConGB.Size = new System.Drawing.Size(268, 189);
             this.manualConGB.TabIndex = 1;
             this.manualConGB.TabStop = false;
             this.manualConGB.Text = "Manual Control";
             // 
             // manualControlButton
             // 
-            this.manualControlButton.Location = new System.Drawing.Point(10, 20);
+            this.manualControlButton.Location = new System.Drawing.Point(15, 31);
+            this.manualControlButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.manualControlButton.Name = "manualControlButton";
-            this.manualControlButton.Size = new System.Drawing.Size(163, 23);
+            this.manualControlButton.Size = new System.Drawing.Size(244, 35);
             this.manualControlButton.TabIndex = 4;
             this.manualControlButton.TabStop = false;
             this.manualControlButton.Text = "Enable Manual Control";
@@ -111,9 +119,10 @@
             // rightButton
             // 
             this.rightButton.BackColor = System.Drawing.SystemColors.Control;
-            this.rightButton.Location = new System.Drawing.Point(108, 68);
+            this.rightButton.Location = new System.Drawing.Point(162, 105);
+            this.rightButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rightButton.Name = "rightButton";
-            this.rightButton.Size = new System.Drawing.Size(30, 30);
+            this.rightButton.Size = new System.Drawing.Size(45, 46);
             this.rightButton.TabIndex = 3;
             this.rightButton.TabStop = false;
             this.rightButton.Text = "D";
@@ -122,9 +131,10 @@
             // reverseButton
             // 
             this.reverseButton.BackColor = System.Drawing.SystemColors.Control;
-            this.reverseButton.Location = new System.Drawing.Point(72, 89);
+            this.reverseButton.Location = new System.Drawing.Point(108, 137);
+            this.reverseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reverseButton.Name = "reverseButton";
-            this.reverseButton.Size = new System.Drawing.Size(30, 30);
+            this.reverseButton.Size = new System.Drawing.Size(45, 46);
             this.reverseButton.TabIndex = 1;
             this.reverseButton.TabStop = false;
             this.reverseButton.Text = "S";
@@ -133,9 +143,10 @@
             // forwardButton
             // 
             this.forwardButton.BackColor = System.Drawing.SystemColors.Control;
-            this.forwardButton.Location = new System.Drawing.Point(72, 49);
+            this.forwardButton.Location = new System.Drawing.Point(108, 75);
+            this.forwardButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.forwardButton.Name = "forwardButton";
-            this.forwardButton.Size = new System.Drawing.Size(30, 30);
+            this.forwardButton.Size = new System.Drawing.Size(45, 46);
             this.forwardButton.TabIndex = 0;
             this.forwardButton.TabStop = false;
             this.forwardButton.Text = "W";
@@ -144,9 +155,10 @@
             // leftButton
             // 
             this.leftButton.BackColor = System.Drawing.SystemColors.Control;
-            this.leftButton.Location = new System.Drawing.Point(36, 68);
+            this.leftButton.Location = new System.Drawing.Point(54, 105);
+            this.leftButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(30, 30);
+            this.leftButton.Size = new System.Drawing.Size(45, 46);
             this.leftButton.TabIndex = 2;
             this.leftButton.TabStop = false;
             this.leftButton.Text = "A";
@@ -157,18 +169,21 @@
             this.destGB.Controls.Add(this.sendCoordinateButton);
             this.destGB.Controls.Add(this.label1);
             this.destGB.Controls.Add(this.coordinateTextBox);
-            this.destGB.Location = new System.Drawing.Point(12, 71);
+            this.destGB.Location = new System.Drawing.Point(18, 109);
+            this.destGB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.destGB.Name = "destGB";
-            this.destGB.Size = new System.Drawing.Size(179, 86);
+            this.destGB.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.destGB.Size = new System.Drawing.Size(268, 132);
             this.destGB.TabIndex = 2;
             this.destGB.TabStop = false;
             this.destGB.Text = "Destination";
             // 
             // sendCoordinateButton
             // 
-            this.sendCoordinateButton.Location = new System.Drawing.Point(10, 58);
+            this.sendCoordinateButton.Location = new System.Drawing.Point(15, 89);
+            this.sendCoordinateButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sendCoordinateButton.Name = "sendCoordinateButton";
-            this.sendCoordinateButton.Size = new System.Drawing.Size(75, 23);
+            this.sendCoordinateButton.Size = new System.Drawing.Size(112, 35);
             this.sendCoordinateButton.TabIndex = 4;
             this.sendCoordinateButton.TabStop = false;
             this.sendCoordinateButton.Text = "Send";
@@ -178,51 +193,60 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 16);
+            this.label1.Location = new System.Drawing.Point(10, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Latitude,Longitude";
             // 
             // coordinateTextBox
             // 
-            this.coordinateTextBox.Location = new System.Drawing.Point(10, 32);
+            this.coordinateTextBox.Location = new System.Drawing.Point(15, 49);
+            this.coordinateTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.coordinateTextBox.Name = "coordinateTextBox";
-            this.coordinateTextBox.Size = new System.Drawing.Size(163, 20);
+            this.coordinateTextBox.Size = new System.Drawing.Size(242, 26);
             this.coordinateTextBox.TabIndex = 0;
             this.coordinateTextBox.TabStop = false;
             // 
             // databaseLabel
             // 
             this.databaseLabel.AutoSize = true;
-            this.databaseLabel.Location = new System.Drawing.Point(36, 57);
-            this.databaseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.databaseLabel.Location = new System.Drawing.Point(37, 137);
             this.databaseLabel.Name = "databaseLabel";
-            this.databaseLabel.Size = new System.Drawing.Size(37, 13);
+            this.databaseLabel.Size = new System.Drawing.Size(56, 20);
             this.databaseLabel.TabIndex = 2;
             this.databaseLabel.Text = "Status";
+            this.databaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.databaseLabel.Visible = false;
-            this.databaseLabel.Click += new System.EventHandler(this.databaseLabel_Click);
             // 
             // databaseGB
             // 
+            this.databaseGB.Controls.Add(this.connectDBB);
             this.databaseGB.Controls.Add(this.simulateB);
             this.databaseGB.Controls.Add(this.databaseLabel);
-            this.databaseGB.Location = new System.Drawing.Point(273, 183);
-            this.databaseGB.Margin = new System.Windows.Forms.Padding(2);
+            this.databaseGB.Location = new System.Drawing.Point(419, 251);
             this.databaseGB.Name = "databaseGB";
-            this.databaseGB.Padding = new System.Windows.Forms.Padding(2);
-            this.databaseGB.Size = new System.Drawing.Size(191, 90);
+            this.databaseGB.Size = new System.Drawing.Size(286, 179);
             this.databaseGB.TabIndex = 3;
             this.databaseGB.TabStop = false;
             this.databaseGB.Text = "Database";
             // 
+            // connectDBB
+            // 
+            this.connectDBB.Location = new System.Drawing.Point(74, 31);
+            this.connectDBB.Name = "connectDBB";
+            this.connectDBB.Size = new System.Drawing.Size(140, 39);
+            this.connectDBB.TabIndex = 4;
+            this.connectDBB.Text = "Connect";
+            this.connectDBB.UseVisualStyleBackColor = true;
+            this.connectDBB.Click += new System.EventHandler(this.connectDBB_Click);
+            // 
             // simulateB
             // 
-            this.simulateB.Location = new System.Drawing.Point(30, 20);
-            this.simulateB.Margin = new System.Windows.Forms.Padding(2);
+            this.simulateB.Location = new System.Drawing.Point(41, 85);
             this.simulateB.Name = "simulateB";
-            this.simulateB.Size = new System.Drawing.Size(136, 27);
+            this.simulateB.Size = new System.Drawing.Size(204, 42);
             this.simulateB.TabIndex = 3;
             this.simulateB.Text = "Simulate Receive String";
             this.simulateB.UseVisualStyleBackColor = true;
@@ -230,15 +254,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(554, 294);
+            this.ClientSize = new System.Drawing.Size(831, 452);
             this.Controls.Add(this.databaseGB);
             this.Controls.Add(this.destGB);
             this.Controls.Add(this.manualConGB);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Lotus 2.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -272,6 +297,7 @@
         private System.Windows.Forms.Label databaseLabel;
         private System.Windows.Forms.GroupBox databaseGB;
         private System.Windows.Forms.Button simulateB;
+        private System.Windows.Forms.Button connectDBB;
     }
 }
 
