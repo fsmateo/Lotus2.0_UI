@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
+using System.Threading;
 
 namespace LotusUI
 {
@@ -18,6 +19,10 @@ namespace LotusUI
         bool manualControlDirection = false;
         String[] ports;
         SerialPort port;
+
+        // variation w/o use of MCU
+        List<string> loraSetting = new List<string>();
+        //
 
         DBConnect DB1;
         const char DELIMITER = '$';
@@ -33,10 +38,19 @@ namespace LotusUI
             InitializeComponent();
             disableControls();
             connectToDatabase();
-            ports = SerialPort.GetPortNames();
             outFile = new FileStream("data.txt", FileMode.Append, FileAccess.Write);
             writer = new StreamWriter(outFile);
 
+            // variation w/o use of MCU
+            loraSetting.Add("AT+IPR=115200\r\n");
+            loraSetting.Add("AT+ADDRESS=100\r\n");
+            loraSetting.Add("AT+NETWORKID=5\r\n");
+            loraSetting.Add("AT+MODE=0\r\n");
+            loraSetting.Add("AT+BAND=908700000\r\n");
+            loraSetting.Add("AT+PARAMETER=10,7,1,7\r\n");
+            //
+
+            ports = SerialPort.GetPortNames();
             foreach (string port in ports)
             {
                 serialportCB.Items.Add(port);
@@ -55,11 +69,6 @@ namespace LotusUI
             }
         }
 
-        void getAvailableComPorts()
-        {
-            ports = SerialPort.GetPortNames();
-        }
-
         private void connectToMCU()
         {
             try
@@ -70,7 +79,15 @@ namespace LotusUI
                 string selectedPort = serialportCB.GetItemText(serialportCB.SelectedItem);
                 port = new SerialPort(selectedPort, 115200, Parity.None, 8, StopBits.One);
                 port.Open();
-                port.Write("#STAR\n");
+                // variation w/o use of MCU
+                foreach (string setting in loraSetting)
+                {
+                    port.Write(setting);
+                    System.Threading.Thread.Sleep(100);
+                }
+                //
+                //port.Write("#STAR\n");
+                port.Write("AT+SEND=200,4,STAR\r\n");
             }
             catch (Exception)
             {
@@ -85,7 +102,8 @@ namespace LotusUI
         {
             try
             {
-                port.Write("#STOP\n");
+                //port.Write("#STOP\n");
+                port.Write("AT+SEND=200,4,STOP\r\n");
                 port.Close();
                 isConnected = false;
                 connectB.Text = "Connect";
@@ -134,19 +152,23 @@ namespace LotusUI
                     {
                         case Keys.W:
                             forwardButton.BackColor = SystemColors.ActiveCaption;
-                            port.Write("#FORW\n");
+                            //port.Write("#FORW\n");
+                            port.Write("AT+SEND=200,4,FORW\r\n");
                             break;
                         case Keys.S:
                             reverseButton.BackColor = SystemColors.ActiveCaption;
-                            port.Write("#REVE\n");
+                            //port.Write("#REVE\n");
+                            port.Write("AT+SEND=200,4,REVE\r\n");
                             break;
                         case Keys.A:
                             leftButton.BackColor = SystemColors.ActiveCaption;
-                            port.Write("#LEFT\n");
+                            //port.Write("#LEFT\n");
+                            port.Write("AT+SEND=200,4,LEFT\r\n");
                             break;
                         case Keys.D:
                             rightButton.BackColor = SystemColors.ActiveCaption;
-                            port.Write("#RIGH\n");
+                            //port.Write("#RIGH\n");
+                            port.Write("AT+SEND=200,4,RIGH\r\n");
                             break;
                         default:
                             break;
@@ -165,7 +187,8 @@ namespace LotusUI
                 reverseButton.BackColor = SystemColors.Control;
                 leftButton.BackColor = SystemColors.Control;
                 rightButton.BackColor = SystemColors.Control;
-                port.Write("#BRAK\n");
+                //port.Write("#BRAK\n");
+                port.Write("AT+SEND=200,4,BRAK\r\n");
                 manualControlDirection = true;
             }
             catch (Exception) { }
