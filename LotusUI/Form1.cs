@@ -19,7 +19,8 @@ namespace LotusUI
         bool manualControlDirection = false;
         String[] ports;
         SerialPort port;
-
+        string cmd, inData;
+        string[] rxData = new string[5];
         // variation w/o use of MCU
         List<string> loraSetting = new List<string>();
         //
@@ -78,6 +79,7 @@ namespace LotusUI
                 enableControls();
                 string selectedPort = serialportCB.GetItemText(serialportCB.SelectedItem);
                 port = new SerialPort(selectedPort, 115200, Parity.None, 8, StopBits.One);
+                port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 port.Open();
                 // variation w/o use of MCU
                 foreach (string setting in loraSetting)
@@ -216,8 +218,19 @@ namespace LotusUI
 
         private void simulateB_Click(object sender, EventArgs e)
         {
-            inputString = "-117.086418$33.119205$74$44$bird$4$99.71";   //CHANGE TO: Input from LoRA
-            storeData(inputString);
+            try
+            {
+                //inputString = "-117.086418$33.119205$74$44$bird$4$99.71";   //CHANGE TO: Input from LoRA
+                cmd = "AT+SEND=200,4,DATA\r\n";
+                port.Write(cmd);
+                richTextBox1.AppendText(cmd);
+                //storeData(inputString);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message + ex.StackTrace);
+            }
+
         }
 
         private void storeData(string inputString)
@@ -250,6 +263,27 @@ namespace LotusUI
         private void sendB_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            inData = port.ReadExisting();
+            this.Invoke(new EventHandler(ParseReceivedData));
+        }
+
+        private void ParseReceivedData(object sender, EventArgs e)
+        {
+            if (inData.Contains("+OK"))
+            {
+                richTextBox1.AppendText(inData);
+            }
+            if (inData.Contains("+RCV"))
+            {
+                rxData = inData.Split(',');
+                inputString = rxData[2];
+                richTextBox1.AppendText(inputString + "\n");
+                storeData(inputString);
+            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
