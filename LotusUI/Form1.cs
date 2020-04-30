@@ -262,7 +262,35 @@ namespace LotusUI
 
         private void sendB_Click(object sender, EventArgs e)
         {
+            String[] coordinates = new String[2];
 
+            if (coordinateTextBox.Text.Contains(','))
+            {
+                coordinates = coordinateTextBox.Text.Split(',');
+
+                double lat, lng;
+                bool valid_Lat = Double.TryParse(coordinates[0], out lat);
+                bool valid_Lng = Double.TryParse(coordinates[1], out lng);
+
+                if (valid_Lat && valid_Lng)
+                {
+                    string guideCmd = $"DEST${coordinates[0]},{coordinates[1]}";
+                    int guideCmdSize = guideCmd.Length;
+                    string completeGuideCmd = $"AT+SEND=200,{guideCmdSize},{guideCmd}\r\n";
+                    port.Write(completeGuideCmd);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid input of Latitude and/or Longitude\n" +
+                                    "Make sure they are in decimal format\n" +
+                                    "Example: 50.000000,-100.000000");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter Valid GPS Coordinates\n" +
+                                "Example: 50.000000,-100.000000");
+            }
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -273,10 +301,10 @@ namespace LotusUI
 
         private void ParseReceivedData(object sender, EventArgs e)
         {
-            if (inData.Contains("+OK"))
-            {
-                richTextBox1.AppendText(inData);
-            }
+            //if (inData.Contains("+OK"))
+            //{
+            //    richTextBox1.AppendText(inData);
+            //}
             if (inData.Contains("+RCV"))
             {
                 rxData = inData.Split(',');
