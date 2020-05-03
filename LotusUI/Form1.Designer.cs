@@ -212,9 +212,9 @@
             this.databaseGB.Controls.Add(this.simulateB);
             this.databaseGB.Controls.Add(this.databaseLabel);
             this.databaseGB.Location = new System.Drawing.Point(282, 12);
-            this.databaseGB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databaseGB.Margin = new System.Windows.Forms.Padding(2);
             this.databaseGB.Name = "databaseGB";
-            this.databaseGB.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databaseGB.Padding = new System.Windows.Forms.Padding(2);
             this.databaseGB.Size = new System.Drawing.Size(191, 116);
             this.databaseGB.TabIndex = 3;
             this.databaseGB.TabStop = false;
@@ -223,7 +223,7 @@
             // connectDBB
             // 
             this.connectDBB.Location = new System.Drawing.Point(49, 20);
-            this.connectDBB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.connectDBB.Margin = new System.Windows.Forms.Padding(2);
             this.connectDBB.Name = "connectDBB";
             this.connectDBB.Size = new System.Drawing.Size(93, 25);
             this.connectDBB.TabIndex = 4;
@@ -234,11 +234,11 @@
             // simulateB
             // 
             this.simulateB.Location = new System.Drawing.Point(27, 55);
-            this.simulateB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simulateB.Margin = new System.Windows.Forms.Padding(2);
             this.simulateB.Name = "simulateB";
             this.simulateB.Size = new System.Drawing.Size(136, 27);
             this.simulateB.TabIndex = 3;
-            this.simulateB.Text = "Simulate Receive String";
+            this.simulateB.Text = "Retrieve Data";
             this.simulateB.UseVisualStyleBackColor = true;
             this.simulateB.Click += new System.EventHandler(this.simulateB_Click);
             // 

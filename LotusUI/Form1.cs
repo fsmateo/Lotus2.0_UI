@@ -274,7 +274,7 @@ namespace LotusUI
 
                 if (valid_Lat && valid_Lng)
                 {
-                    string guideCmd = $"DEST${coordinates[0]},{coordinates[1]}";
+                    string guideCmd = $"DEST${coordinates[0]}${coordinates[1]}";
                     int guideCmdSize = guideCmd.Length;
                     string completeGuideCmd = $"AT+SEND=200,{guideCmdSize},{guideCmd}\r\n";
                     port.Write(completeGuideCmd);
